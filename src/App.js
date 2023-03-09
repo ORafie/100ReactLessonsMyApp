@@ -3,7 +3,7 @@ import './App.css';
 const App = () => {
   return (
     <div className='app-wrapper'>
-      <header className='header'><img src='https://cdn.dribbble.com/userupload/5116624/file/original-cb12940e1e88b404209be28630fbafbe.jpg?compress=1&resize=752x' /></header>
+      <header className='header'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0ntbd58-RDIiZicZqpuY94FchXYUOwYLnjQ&usqp=CAU' /></header>
       <nav className='nav'>
         <div><a>Profile</a></div>
         <div><a>Messages</a></div>
