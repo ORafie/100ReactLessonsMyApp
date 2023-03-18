@@ -10,10 +10,10 @@ const MyPosts = () => {
             <button>Remove</button>
             <div>New posts</div>
             <div className={classes.masonry}>
-                <Post />
-                <Post />
-                <Post />
-                <Post />
+                <Post message='hi! hi! hi!' />
+                <Post message='hello world' />
+                <Post message='how are you' />
+                <Post message='have a nice day' />
             </div>
         </div>
     )
