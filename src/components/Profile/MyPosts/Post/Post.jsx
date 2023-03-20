@@ -1,5 +1,5 @@
 import { type } from '@testing-library/user-event/dist/type';
-import LikeCounter from './LikeCounter';
+import LikeCounter from '../LikeCounter/LikeCounter';
 import classes from './Post.module.css'
 
 
@@ -9,7 +9,7 @@ const Post = (props) => {
             <img src='https://cdn.pixabay.com/photo/2017/11/29/09/15/paint-2985569__340.jpg' />
             {props.message}
             <div className='counter'>
-            <LikeCounter />              
+                <LikeCounter  />              
             </div>
         </div>
     )
