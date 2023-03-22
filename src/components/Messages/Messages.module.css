@@ -2,9 +2,6 @@
     display: grid;
     grid-template-columns: 2fr 10fr;
 }
-.users {
-
-}
 .user {
     padding: 10px;
 }
@@ -12,12 +9,12 @@
     width: 50px;
     border-radius: 50%;
 }
-.active {
+.user a {
+    text-decoration: none;
+}
+.user a.active {
     color: ghostwhite;
 }
 .texts {
     padding: 10px;
-}
-.text {
-   
 }
