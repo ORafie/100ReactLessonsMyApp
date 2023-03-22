@@ -7,7 +7,6 @@ import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
 
 const App = () => {
   return (
