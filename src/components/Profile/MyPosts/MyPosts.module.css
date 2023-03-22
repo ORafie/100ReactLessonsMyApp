@@ -1,4 +1,5 @@
 .masonry {
     margin:auto;
     column-count: 3;
+    padding: 10px;
 }
