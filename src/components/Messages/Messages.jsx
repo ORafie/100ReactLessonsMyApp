@@ -15,19 +15,31 @@ const Text = (props) => {
 }
 
 const Messages = () => {
+    let messagesData = [
+        { id: 1, name: 'User 1' },
+        { id: 2, name: 'User 2' },
+        { id: 3, name: 'User 3' },
+        { id: 4, name: 'User 4' },
+        { id: 5, name: 'User 5' },
+    ]
+    let textData = [
+        { id: 1, text: 'Hello world!' },
+        { id: 2, text: 'Where have you been!' },
+        { id: 3, text: 'Glad to see you again!' },
+    ]
     return (
         <div className={classes.messages}>
             <div className={classes.users}> 
-                <User name='User 1' id='1' />
-                <User name='User 2' id='2' />
-                <User name='User 3' id='3' />
-                <User name='User 4' id='4' />
-                <User name='User 5' id='5' />
+                <User name={messagesData[0].name} id={messagesData[0].id} />
+                <User name={messagesData[1].name} id={messagesData[1].id} />
+                <User name={messagesData[2].name} id={messagesData[2].id} />
+                <User name={messagesData[3].name} id={messagesData[3].id} />
+                <User name={messagesData[4].name} id={messagesData[4].id} />
             </div>
             <div className={classes.texts}>
-                <Text text='Hello world!' />
-                <Text text='Where have you been!' />
-                <Text text='Glad to see you again!' />
+                <Text text={textData[0].text} />
+                <Text text={textData[1].text} />
+                <Text text={textData[2].text} />
             </div>
         </div>
             
