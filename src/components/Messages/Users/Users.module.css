@@ -1,0 +1,13 @@
+.user {
+    padding: 10px;
+}
+.user img {
+    width: 50px;
+    border-radius: 50%;
+}
+.user a {
+    text-decoration: none;
+}
+.user a.active {
+    color: ghostwhite;
+}
