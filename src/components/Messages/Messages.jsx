@@ -15,7 +15,7 @@ const Text = (props) => {
 }
 
 const Messages = () => {
-    let messagesData = [
+    let usersData = [
         { id: 1, name: 'User 1' },
         { id: 2, name: 'User 2' },
         { id: 3, name: 'User 3' },
@@ -27,19 +27,16 @@ const Messages = () => {
         { id: 2, text: 'Where have you been!' },
         { id: 3, text: 'Glad to see you again!' },
     ]
+    let users = usersData.map( user => <User name={user.name} id={user.id} />); 
+    let texts = textData.map( text => <Text text={text.text} />)
+        
     return (
         <div className={classes.messages}>
             <div className={classes.users}> 
-                <User name={messagesData[0].name} id={messagesData[0].id} />
-                <User name={messagesData[1].name} id={messagesData[1].id} />
-                <User name={messagesData[2].name} id={messagesData[2].id} />
-                <User name={messagesData[3].name} id={messagesData[3].id} />
-                <User name={messagesData[4].name} id={messagesData[4].id} />
+                {users}
             </div>
             <div className={classes.texts}>
-                <Text text={textData[0].text} />
-                <Text text={textData[1].text} />
-                <Text text={textData[2].text} />
+                {texts}
             </div>
         </div>
             

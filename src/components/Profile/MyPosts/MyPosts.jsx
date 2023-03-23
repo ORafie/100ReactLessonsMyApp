@@ -11,6 +11,8 @@ const MyPosts = () => {
         { id: 6, post: 'where are you?' },
         { id: 7, post: 'changes! welcome!' },
     ]
+    let posts = postData.map( post => <Post message={post.post} />)
+
     return (
         <div className={classes.masonry}>
             <h3>New posts</h3>
@@ -21,13 +23,7 @@ const MyPosts = () => {
                 <button>Add post</button>
             </div>
             <div>
-                <Post message={postData[0].post} />
-                <Post message={postData[1].post} />
-                <Post message={postData[2].post} />
-                <Post message={postData[3].post} />
-                <Post message={postData[4].post} />
-                <Post message={postData[5].post} />
-                <Post message={postData[6].post} />
+                {posts}
             </div>
         </div>
     )
