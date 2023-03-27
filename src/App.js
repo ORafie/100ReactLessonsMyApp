@@ -9,6 +9,7 @@ import Settings from './components/Settings/Settings';
 import MyFriends from './components/MyFriends/MyFriends';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 
+
 const App = (props) => {
 
   return (
@@ -18,7 +19,9 @@ const App = (props) => {
         <Navbar usersData={props.state.messagesPage.usersData} />
         <div className='app-wrapper-content'>
           <Routes>
-            <Route path="/profile" element={<Profile postData={props.state.profilePage.postData} />} />
+            <Route path="/profile" element={<Profile
+              postData={props.state.profilePage.postData}
+              addPost={props.addPost} />} />
             <Route path="/messages" element={<Messages usersData={props.state.messagesPage.usersData} textData={props.state.messagesPage.textData} />} />
             <Route path='/news' element={<News />} />
             <Route path='/music' element={<Music />} />

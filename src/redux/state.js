@@ -26,4 +26,14 @@ let state = {
     }
 }
 
+export let addPost = (postPost) => {
+    debugger
+    let newPost = {
+        id: 8,
+        post: postPost,
+    }
+
+    state.profilePage.postData.push(newPost);
+}
+
 export default state;

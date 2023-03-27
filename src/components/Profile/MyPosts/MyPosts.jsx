@@ -3,13 +3,15 @@ import Post from './Post/Post';
 import React from 'react';
 
 const MyPosts = (props) => {
-    let posts = props.postData.map( post => <Post message={post.post} />)
+    
+    let posts = props.postData.map(post => <Post message={post.post} key={post.id} />)
 
     let newPost = React.createRef();
 
     let addPost = () => {
-        let text = newPost.current.value;
-        alert(text);
+        debugger;
+             let text = newPost.current.value;
+        props.addPost(text);
     }
 
     return (
