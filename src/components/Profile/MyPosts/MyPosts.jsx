@@ -9,19 +9,20 @@ const MyPosts = (props) => {
     let newPost = React.createRef();
 
     let addPost = () => {
-        debugger;
+
              let text = newPost.current.value;
         props.addPost(text);
     }
 
     return (
         <div className={classes.masonry}>
-            <h3>New posts</h3>
+            <h3>New post</h3>
             <div>
                 <textarea ref={newPost}></textarea>
             </div>
             <div>
                 <button onClick={addPost}>Add post</button>
+                
             </div>
             <div>
                 {posts}
