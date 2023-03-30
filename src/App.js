@@ -21,6 +21,7 @@ const App = (props) => {
           <Routes>
             <Route path="/profile" element={<Profile
               postData={props.state.profilePage.postData}
+              updatePostData={props.updatePostData}
               addPost={props.addPost} />} />
             <Route path="/messages" element={<Messages usersData={props.state.messagesPage.usersData} textData={props.state.messagesPage.textData} />} />
             <Route path='/news' element={<News />} />

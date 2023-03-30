@@ -12,7 +12,7 @@ const Messages = (props) => {
         alert(message);
     }
 
-    let Users = props.usersData.map( user => <User name={user.name} id={user.id} />); 
+    let Users = props.usersData.map( user => <User name={user.name} id={user.id} key={user.id}/>); 
     
     let Texts = props.textData.map(text => <Text text={text.text} />)
     

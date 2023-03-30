@@ -10,7 +10,8 @@ let state = {
             { id: 5, post: 'finally spring! everything is blossoming!' },
             { id: 6, post: 'where are you?' },
             { id: 7, post: 'changes! welcome!' },
-        ]
+        ],
+        newTextForPostData: 'new text from a user'
     },
     messagesPage: {
         usersData: [
@@ -28,13 +29,16 @@ let state = {
     }
 }
 
-export let addPost = (postPost) => {
+export let updatePostData = (newText) => {
+    state.profilePage.newTextForPostData = newText;
+    rerenderEntireTree(state);
+}
 
+export let addPost = (id) => {
     let newPost = {
-        id: 8,
-        post: postPost,
+        id: id,
+        post: state.profilePage.newTextForPostData,
     }
-
     state.profilePage.postData.push(newPost);
     rerenderEntireTree(state);
 }

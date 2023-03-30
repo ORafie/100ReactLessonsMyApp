@@ -8,17 +8,20 @@ const MyPosts = (props) => {
 
     let newPost = React.createRef();
 
-    let addPost = () => {
-
-             let text = newPost.current.value;
-        props.addPost(text);
+    let addPost = () => {           
+        props.addPost();
     }
 
+    let onPostChange = () => {     
+        let newText = newPost.current.value;
+        props.updatePostData(newText);
+    }
+ 
     return (
         <div className={classes.masonry}>
             <h3>New post</h3>
             <div>
-                <textarea ref={newPost}></textarea>
+                <textarea onChange={onPostChange} ref={newPost}></textarea>
             </div>
             <div>
                 <button onClick={addPost}>Add post</button>

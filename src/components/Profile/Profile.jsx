@@ -5,7 +5,9 @@ import classes from './Profile.module.css'
 const Profile = (props) => {
     return <div className={classes.content}>
         <ProfileInfo />
-        <MyPosts postData={props.postData} addPost={props.addPost } />
+        <MyPosts postData={props.postData}
+            updatePostData={props.updatePostData}
+            addPost={props.addPost} />
     </div>
 }
 
