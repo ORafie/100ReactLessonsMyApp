@@ -3,7 +3,7 @@ import Profile from './components/Profile/Profile';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Messages from './components/Messages/Messages';
-import News from './components/News/News';
+import MyNews from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import MyFriends from './components/MyFriends/MyFriends';
@@ -19,15 +19,25 @@ const App = (props) => {
         <Navbar usersData={props.state.messagesPage.usersData} />
         <div className='app-wrapper-content'>
           <Routes>
+            <Route path="/" element={<Profile
+              postData={props.state.profilePage.postData}
+              updatePostData={props.updatePostData}
+              addPost={props.addPost} />} />
             <Route path="/profile" element={<Profile
               postData={props.state.profilePage.postData}
               updatePostData={props.updatePostData}
               addPost={props.addPost} />} />
-            <Route path="/messages" element={<Messages usersData={props.state.messagesPage.usersData} textData={props.state.messagesPage.textData} />} />
-            <Route path='/news' element={<News />} />
+            <Route path="/messages" element={<Messages
+              usersData={props.state.messagesPage.usersData}
+              textData={props.state.messagesPage.textData} />} />
+            <Route path='/news' element={<MyNews
+              newsData={props.state.newsPage.newsData}
+              updateNewsData={props.updateNewsData}
+              addNews={props.addNews} />} />
             <Route path='/music' element={<Music />} />
             <Route path='/settings' element={<Settings />} />
-            <Route path='/myfriends' element={<MyFriends usersData={props.state.messagesPage.usersData} />} />
+            <Route path='/myfriends' element={<MyFriends
+              usersData={props.state.messagesPage.usersData} />} />
           </Routes>
         </div>
       </div >

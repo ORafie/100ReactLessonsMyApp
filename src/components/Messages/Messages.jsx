@@ -12,9 +12,9 @@ const Messages = (props) => {
         alert(message);
     }
 
-    let Users = props.usersData.map( user => <User name={user.name} id={user.id} key={user.id}/>); 
+    let Users = props.usersData.map( user => <User key={user.id} name={user.name} id={user.id} />); 
     
-    let Texts = props.textData.map(text => <Text text={text.text} />)
+    let Texts = props.textData.map(text => <Text key={text.id} text={text.text} />)
     
     return (
         <div className={classes.messages}>

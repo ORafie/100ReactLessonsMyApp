@@ -4,12 +4,13 @@ import React from 'react';
 
 const MyPosts = (props) => {
     
-    let posts = props.postData.map(post => <Post message={post.post} key={post.id} />)
+    let posts = props.postData.map(post => <Post key={post.id} message={post.post} />)
 
     let newPost = React.createRef();
 
-    let addPost = () => {           
+    let submitPost = () => {
         props.addPost();
+        newPost.current.value = '';
     }
 
     let onPostChange = () => {     
@@ -21,10 +22,10 @@ const MyPosts = (props) => {
         <div className={classes.masonry}>
             <h3>New post</h3>
             <div>
-                <textarea onChange={onPostChange} ref={newPost}></textarea>
+                <textarea onChange={onPostChange} ref={newPost} />
             </div>
             <div>
-                <button onClick={addPost}>Add post</button>
+                <button onClick={submitPost}>Add post</button>
                 
             </div>
             <div>
@@ -35,3 +36,18 @@ const MyPosts = (props) => {
 }
 
 export default MyPosts;
+
+// function a1() {
+//     //some code
+// }
+// const a2 = () => {
+//     //some code
+// }
+// function b1(arg1) {
+//     return arg1 * 2
+// }
+// const b2 = (arg1) => {
+//     return arg1 * 2
+// }
+// const b3 = (arg1) => arg1 * 2; 
+// console.log(b2(25), b1(35), a2(15), a1(10), b3(5))

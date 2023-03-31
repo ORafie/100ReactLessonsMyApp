@@ -1,0 +1,8 @@
+.news {
+    color: rgb(53, 242, 198);
+}
+
+.news img {
+    width: 50px;
+    border-radius: 50%;
+}

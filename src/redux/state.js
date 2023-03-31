@@ -28,12 +28,21 @@ let state = {
             { id: 2, text: 'Where have you been!' },
             { id: 3, text: 'Glad to see you again!' },
         ]
+    },
+    newsPage: {
+        newsData: [
+            { id: 1, news: 'About earthquakes' },
+            { id: 2, news: 'Summer is coming!' },
+            { id: 3, news: 'How many languages do you know?' },
+        ],
+        newTextForNewsData: 'new text from a user'
     }
 }
 
-export const addPost = (id) => {
+export const addPost = () => {
+    debugger
     let newPost = {
-        id: id,
+        id: state.profilePage.postData[state.profilePage.postData.length - 1].id + 1,
         post: state.profilePage.newTextForPostData,
     }
     state.profilePage.postData.push(newPost);
@@ -43,6 +52,22 @@ export const addPost = (id) => {
 
 export const updatePostData = (newText) => {
     state.profilePage.newTextForPostData = newText;
+    rerenderEntireTree(state);
+}
+
+export const addNews = () => {
+    debugger
+    let newArticle = {
+        id: state.newsPage.newsData[state.newsPage.newsData.length - 1].id + 1,
+        post: state.newsPage.newTextForNewsData,
+    }
+    state.newsPage.newsData.push(newArticle);
+    state.newsPage.newTextForNewsData = '';
+    rerenderEntireTree(state);
+}
+
+export const updateNewsData = (newTextNews) => {
+    state.newsPage.newTextForNewsData = newTextNews;
     rerenderEntireTree(state);
 }
 
