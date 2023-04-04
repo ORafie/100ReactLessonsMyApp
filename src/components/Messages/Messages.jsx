@@ -5,17 +5,17 @@ import React from 'react';
 
 const Messages = (props) => {
     
+    let Texts = props.textData.map(text => <Text key={text.id} text={text.text} />);
+    
+    let Users = props.usersData.map(user => <User key={user.id} name={user.name} id={user.id} />); 
+    
     let newMessage = React.createRef();
 
     let addMessage = () => {
         let message = newMessage.current.value;
         alert(message);
     }
-
-    let Users = props.usersData.map( user => <User key={user.id} name={user.name} id={user.id} />); 
-    
-    let Texts = props.textData.map(text => <Text key={text.id} text={text.text} />)
-    
+   
     return (
         <div className={classes.messages}>
             <div className={classes.users}> 

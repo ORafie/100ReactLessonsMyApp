@@ -1,29 +1,33 @@
 import React from 'react';
-import state from './redux/state';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { addPost, updatePostData, addNews, updateNewsData, subscribe } from './redux/state';
+import store from './redux/store';
+import { BrowserRouter } from 'react-router-dom';
 
-let root = null;
+const rootElement = document.getElementById('root');
 
 let rerenderEntireTree = (state) => {
-    if (!root) {
-        root = ReactDOM.createRoot(document.getElementById('root'));
-    }
 
-    root.render(
-        <React.StrictMode>
+    ReactDOM.createRoot(rootElement).render(
+        <BrowserRouter>
             <App
                 state={state}
-                updatePostData={updatePostData}
-                addPost={addPost}
-                addNews={addNews}
-                updateNewsData={updateNewsData} />
-        </React.StrictMode>
+                addPost={store.addPost.bind(store)}
+                updatePostData={store.updatePostData.bind(store)}
+                addNews={store.addNews.bind(store)}
+                updateNewsData={store.updateNewsData.bind(store)}
+            />
+
+        </BrowserRouter>
     );
 }
 
-rerenderEntireTree(state);
+// rerenderEntireTree(store.getState.call(store));
+rerenderEntireTree(store.getState());
+// console.log(123456, store.getState());
 
-subscribe(rerenderEntireTree);
+store.subscribe(() => {
+    // console.log(9999, store.getState());
+    rerenderEntireTree(store.getState.call(store));
+});

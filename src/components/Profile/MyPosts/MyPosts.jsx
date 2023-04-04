@@ -3,8 +3,8 @@ import Post from './Post/Post';
 import React from 'react';
 
 const MyPosts = (props) => {
-    
-    let posts = props.postData.map(post => <Post key={post.id} message={post.post} />)
+    console.log(props)
+    let posts = props.profilePage.postData.map(post => <Post key={post.id} message={post.post} />)
 
     let newPost = React.createRef();
 
@@ -22,7 +22,9 @@ const MyPosts = (props) => {
         <div className={classes.masonry}>
             <h3>New post</h3>
             <div>
-                <textarea onChange={onPostChange} ref={newPost} />
+                <textarea onChange={onPostChange} ref={newPost}
+                value={props.newTextForPostData} 
+                />
             </div>
             <div>
                 <button onClick={submitPost}>Add post</button>
