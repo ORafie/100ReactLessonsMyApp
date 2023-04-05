@@ -38,13 +38,13 @@ let store = {
             newTextForNewsData: ''
         }
     },
-    getState() {
-        return this._state;
-    },
     _callSubscriber() {
         console.log('state changed')
     },
-    addPost() {
+    getState() {
+        return this._state;
+    },
+    _addPost() {
         let newPost = {
             id: this._state.profilePage.postData[this._state.profilePage.postData.length - 1].id + 1,
             post: this._state.profilePage.newTextForPostData,
@@ -54,12 +54,12 @@ let store = {
         this._state.profilePage.newTextForPostData = '';
         this._callSubscriber(this._state);
     },
-    updatePostData(newText) {
+    _updatePostData(newText) {
         console.log(2)
         this._state.profilePage.newTextForPostData = newText;
         this._callSubscriber(this._state);
     },
-    addNews() {
+    _addNews() {
         let newArticle = {
             id: this._state.newsPage.newsData[this._state.newsPage.newsData.length - 1].id + 1,
             article: this._state.newsPage.newTextForNewsData,
@@ -69,7 +69,7 @@ let store = {
         this._state.newsPage.newTextForNewsData = '';
         this._callSubscriber(this._state);
     },
-    updateNewsData(newTextNews) {
+    _updateNewsData(newTextNews) {
         console.log(4)
         this._state.newsPage.newTextForNewsData = newTextNews;
         this._callSubscriber(this._state);
@@ -77,6 +77,17 @@ let store = {
     subscribe(observer) {
         this._callSubscriber = observer;
     },
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            this._addPost();
+        } else if (action.type === 'UPDATE-POST-DATA') {
+            this._updatePostData(action.newText);
+        } else if (action.type === 'ADD-NEWS') {
+            this._addNews();
+        } else if (action.type === 'UPDATE-NEWS-DATA') {
+            this._updateNewsData(action.newTextNews);
+        }
+    }
 };
 
 // let a = {

@@ -9,13 +9,13 @@ console.log(props, props.newsPage)
     let newArticle = React.createRef();
     
     let submitNews = () => {
-        props.addNews();
+        props.dispatch({ type: 'ADD-NEWS'});
         newArticle.current.value = '';
     }
     
     let onNewsChange = () => {
         let newTextNews = newArticle.current.value;
-        props.updateNewsData(newTextNews);
+        props.dispatch({ type: 'UPDATE-NEWS-DATA', newTextNews });
     }
 console.log(123, props.newsPage.newTextForNewsData)
     return (
