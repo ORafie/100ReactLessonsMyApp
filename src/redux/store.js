@@ -41,21 +41,18 @@ let store = {
     _callSubscriber() {
         console.log('state changed')
     },
-    getState() {
-        return this._state;
-    },
     _addPost() {
         let newPost = {
             id: this._state.profilePage.postData[this._state.profilePage.postData.length - 1].id + 1,
             post: this._state.profilePage.newTextForPostData,
         }
-        console.log(1)
+        console.log(11)
         this._state.profilePage.postData.push(newPost);
         this._state.profilePage.newTextForPostData = '';
         this._callSubscriber(this._state);
     },
     _updatePostData(newText) {
-        console.log(2)
+        console.log(22)
         this._state.profilePage.newTextForPostData = newText;
         this._callSubscriber(this._state);
     },
@@ -74,6 +71,9 @@ let store = {
         this._state.newsPage.newTextForNewsData = newTextNews;
         this._callSubscriber(this._state);
     },
+    getState() {
+        return this._state;
+    },
     subscribe(observer) {
         this._callSubscriber = observer;
     },
@@ -90,6 +90,29 @@ let store = {
     }
 };
 
+export const addPospActionCreator = () => {
+    return {
+        type: 'ADD-POST'
+    }
+};
+
+export const updatePostDataActionCreator = (newText) => {
+    return {
+        type: 'UPDATE-POST-DATA', newText: newText
+    }
+};
+
+export const addNewsActionCreator = () => {
+    return {
+        type: 'ADD-NEWS'
+    }
+};
+
+export const updateNewsDataActionCreator = (newTextNews) => {
+    return {
+        type: 'UPDATE-NEWS-DATA', newTextNews: newTextNews
+    }
+}
 // let a = {
 //     run() {
 //         return store.getState();

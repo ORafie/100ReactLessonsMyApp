@@ -1,21 +1,24 @@
 import classes from './MyPosts.module.css'
 import Post from './Post/Post';
 import React from 'react';
+import { addPospActionCreator } from '../../../redux/store';
+import { updatePostDataActionCreator } from '../../../redux/store';
 
 const MyPosts = (props) => {
-    console.log(props)
+    console.log(('myPosts'), props)
     let posts = props.profilePage.postData.map(post => <Post key={post.id} message={post.post} />)
 
     let newPost = React.createRef();
 
     let submitPost = () => {
-        props.dispatch({type: 'ADD-POST'});
+        props.dispatch(addPospActionCreator());
         newPost.current.value = '';
     }
 
     let onPostChange = () => {     
         let newText = newPost.current.value;
-        props.dispatch({ type: 'UPDATE-POST-DATA', newText });
+        let action = updatePostDataActionCreator(newText);
+        props.dispatch(action);
     }
  
     return (

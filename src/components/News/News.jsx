@@ -1,6 +1,8 @@
 import React from 'react';
 import classes from './News.module.css';
 import Article from './Article/Article';
+import { addNewsActionCreator } from '../../redux/store';
+import { updateNewsDataActionCreator } from '../../redux/store';
 
 const MyNews = (props) => {
 console.log(props, props.newsPage)
@@ -9,13 +11,14 @@ console.log(props, props.newsPage)
     let newArticle = React.createRef();
     
     let submitNews = () => {
-        props.dispatch({ type: 'ADD-NEWS'});
+        props.dispatch(addNewsActionCreator());
         newArticle.current.value = '';
     }
     
     let onNewsChange = () => {
         let newTextNews = newArticle.current.value;
-        props.dispatch({ type: 'UPDATE-NEWS-DATA', newTextNews });
+        let action = updateNewsDataActionCreator(newTextNews);
+        props.dispatch(action);
     }
 console.log(123, props.newsPage.newTextForNewsData)
     return (
