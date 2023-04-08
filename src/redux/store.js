@@ -1,3 +1,10 @@
+const ADD_POST = 'ADD_POST';
+const UPDATE_POST_DATA = 'UPDATE_POST_DATA';
+const ADD_NEWS = 'ADD_NEWS';
+const UPDATE_NEWS_DATA = 'UPDATE_NEWS_DATA';
+const ADD_MESSAGE = 'ADD_MESSAGE';
+const UPDATE_TEXT_DATA = 'UPDATE_TEXT_DATA';
+
 let store = {
     _subscriber() {
         console.log('no subscribers(observers)')
@@ -27,7 +34,8 @@ let store = {
                 { id: 1, text: 'Hello world!' },
                 { id: 2, text: 'Where have you been!' },
                 { id: 3, text: 'Glad to see you again!' },
-            ]
+            ],
+            newMessageForTextData: ''
         },
         newsPage: {
             newsData: [
@@ -36,7 +44,7 @@ let store = {
                 { id: 3, article: 'How many languages do you know?' },
             ],
             newTextForNewsData: ''
-        }
+        },
     },
     _callSubscriber() {
         console.log('state changed')
@@ -71,6 +79,21 @@ let store = {
         this._state.newsPage.newTextForNewsData = newTextNews;
         this._callSubscriber(this._state);
     },
+    _addMessage() {
+        let newMessage = {
+            id: this._state.messagesPage.textData[this._state.messagesPage.textData.length - 1].id + 1,
+            text: this._state.messagesPage.newMessageForTextData,
+        }
+        console.log(5)
+        this._state.messagesPage.textData.push(newMessage);
+        this._state.messagesPage.newMessageForTextData = '';
+        this._callSubscriber(this._state);
+    },
+    _updateTextData(newMessageText) {
+        console.log(6)
+        this._state.messagesPage.newMessageForTextData = newMessageText;
+        this._callSubscriber(this._state);
+    },
     getState() {
         return this._state;
     },
@@ -78,39 +101,54 @@ let store = {
         this._callSubscriber = observer;
     },
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === 'ADD_POST') {
             this._addPost();
-        } else if (action.type === 'UPDATE-POST-DATA') {
+        } else if (action.type === 'UPDATE_POST_DATA') {
             this._updatePostData(action.newText);
-        } else if (action.type === 'ADD-NEWS') {
+        } else if (action.type === 'ADD_NEWS') {
             this._addNews();
-        } else if (action.type === 'UPDATE-NEWS-DATA') {
+        } else if (action.type === 'UPDATE_NEWS_DATA') {
             this._updateNewsData(action.newTextNews);
+        } else if (action.type === 'ADD_MESSAGE') {
+            this._addMessage();
+        } else if (action.type === 'UPDATE_TEXT_DATA') {
+            this._updateTextData(action.newMessageText);
         }
     }
 };
 
 export const addPospActionCreator = () => {
     return {
-        type: 'ADD-POST'
+        type: 'ADD_POST'
     }
 };
 
 export const updatePostDataActionCreator = (newText) => {
     return {
-        type: 'UPDATE-POST-DATA', newText: newText
+        type: 'UPDATE_POST_DATA', newText: newText
     }
 };
 
 export const addNewsActionCreator = () => {
     return {
-        type: 'ADD-NEWS'
+        type: 'ADD_NEWS'
     }
 };
 
 export const updateNewsDataActionCreator = (newTextNews) => {
     return {
-        type: 'UPDATE-NEWS-DATA', newTextNews: newTextNews
+        type: 'UPDATE_NEWS_DATA', newTextNews: newTextNews
+    }
+}
+export const addMessageActionCreator = () => {
+    return {
+        type: 'ADD_MESSAGE'
+    }
+};
+
+export const updateTextDataActionCreator = (newMessageText) => {
+    return {
+        type: 'UPDATE_TEXT_DATA', newMessageText: newMessageText
     }
 }
 // let a = {

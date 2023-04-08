@@ -34,8 +34,11 @@ const App = (props) => {
           />
           <Route path="/messages" element={
             <Messages
+              messagesPage={props.state.messagesPage}
               usersData={props.state.messagesPage.usersData}
               textData={props.state.messagesPage.textData}
+              dispatch={props.dispatch}
+              newMessageForTextData={props.state.messagesPage.newMessageForTextData}
             />}
           />
           <Route path='/news' element={
