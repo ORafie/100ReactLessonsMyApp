@@ -84,7 +84,7 @@ let store = {
             id: this._state.messagesPage.textData[this._state.messagesPage.textData.length - 1].id + 1,
             text: this._state.messagesPage.newMessageForTextData,
         }
-        console.log(5)
+        console.log(5, newMessage)
         this._state.messagesPage.textData.push(newMessage);
         this._state.messagesPage.newMessageForTextData = '';
         this._callSubscriber(this._state);

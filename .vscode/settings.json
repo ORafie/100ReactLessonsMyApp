@@ -1,0 +1,7 @@
+{
+    "eslint.problems.shortenToSingleLine": true,
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.formatOnSave": true,
+    "files.insertFinalNewline": true
+}

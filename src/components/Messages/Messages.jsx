@@ -7,21 +7,28 @@ import { updateTextDataActionCreator } from '../../redux/store';
 
 const Messages = (props) => {
     console.log(('Messages'), props)
-    let Texts = props.messagesPage.textData.map(text => <Text key={text.id} text={text.text} />);
-    
     let Users = props.messagesPage.usersData.map(user => <User key={user.id} name={user.name} id={user.id} />); 
     
-    let newMessage = React.createRef();
-
+    let Texts = props.messagesPage.textData.map(text => <Text key={text.id} text={text.text} />);
+    
+    // let newMessageForTextData = props.messagesPage.newMessageForTextData;
+    // let abc = 523;
+    // let abcd = {
+    //     abc: 523
+    // } 
+    
     let submitMessage = () => {
         props.dispatch(addMessageActionCreator());
-        newMessage.current.value = '';
     }
 
-    let onMessageChange = () => {
-        let newTextMessage = newMessage.current.value;
-        let action = updateTextDataActionCreator(newTextMessage);
-        props.dispatch(action);
+    let onMessageChange = (event) => {
+        let newMessageText = event.target.value;
+            // let event = {
+            //     target: {
+            //        value: ''
+            //     } 
+            // }
+        props.dispatch(updateTextDataActionCreator(newMessageText));
     }
    
     return (
@@ -31,7 +38,7 @@ const Messages = (props) => {
             </div>
             <div className={classes.texts}>
                 <div>
-                    <textarea onChange={onMessageChange} ref={newMessage}
+                    <textarea onChange={onMessageChange} 
                         value={props.newMessageForTextData}
                     />
                 </div>

@@ -15,8 +15,8 @@ const MyPosts = (props) => {
         newPost.current.value = '';
     }
 
-    let onPostChange = () => {     
-        let newText = newPost.current.value;
+    let onPostChange = (event) => {     
+        let newText = event.target.value;
         let action = updatePostDataActionCreator(newText);
         props.dispatch(action);
     }
@@ -25,12 +25,13 @@ const MyPosts = (props) => {
         <div className={classes.masonry}>
             <h3>New post</h3>
             <div>
-                <textarea onChange={onPostChange} ref={newPost}
-                value={props.newTextForPostData} 
+                <textarea onChange={onPostChange}
+                    ref={newPost}
+                    value={props.profilePage.newTextForPostData}
                 />
             </div>
             <div>
-                <button onClick={submitPost}>Add post</button>
+                <button onClick= {submitPost}>Add post</button>
                 
             </div>
             <div>
