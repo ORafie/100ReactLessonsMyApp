@@ -25,7 +25,7 @@ const MyPosts = (props) => {
         <div className={classes.masonry}>
             <h3>New post</h3>
             <div>
-                <textarea onChange={onPostChange}
+                <textarea id="input" onChange={onPostChange}
                     ref={newPost}
                     value={props.profilePage.newTextForPostData}
                 />

@@ -16,7 +16,8 @@ const App = (props) => {
   return (
     <div className='app-wrapper'>
       <Header />
-      <Navbar usersData={props.state.messagesPage.usersData}
+      <Navbar
+        usersData={props.state.messagesPage.usersData}
       />
       <div className='app-wrapper-content'>
         <Routes>

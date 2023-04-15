@@ -1,9 +1,6 @@
-const ADD_POST = 'ADD_POST';
-const UPDATE_POST_DATA = 'UPDATE_POST_DATA';
-const ADD_NEWS = 'ADD_NEWS';
-const UPDATE_NEWS_DATA = 'UPDATE_NEWS_DATA';
-const ADD_MESSAGE = 'ADD_MESSAGE';
-const UPDATE_TEXT_DATA = 'UPDATE_TEXT_DATA';
+import profileReducer from "./profileReducer";
+import messagesReducer from "./messagesReducer";
+import newsReducer from "./newsReducer";
 
 let store = {
     _subscriber() {
@@ -49,51 +46,51 @@ let store = {
     _callSubscriber() {
         console.log('state changed')
     },
-    _addPost() {
-        let newPost = {
-            id: this._state.profilePage.postData[this._state.profilePage.postData.length - 1].id + 1,
-            post: this._state.profilePage.newTextForPostData,
-        }
-        console.log(11)
-        this._state.profilePage.postData.push(newPost);
-        this._state.profilePage.newTextForPostData = '';
-        this._callSubscriber(this._state);
-    },
-    _updatePostData(newText) {
-        console.log(22)
-        this._state.profilePage.newTextForPostData = newText;
-        this._callSubscriber(this._state);
-    },
-    _addNews() {
-        let newArticle = {
-            id: this._state.newsPage.newsData[this._state.newsPage.newsData.length - 1].id + 1,
-            article: this._state.newsPage.newTextForNewsData,
-        }
-        console.log(3)
-        this._state.newsPage.newsData.push(newArticle);
-        this._state.newsPage.newTextForNewsData = '';
-        this._callSubscriber(this._state);
-    },
-    _updateNewsData(newTextNews) {
-        console.log(4)
-        this._state.newsPage.newTextForNewsData = newTextNews;
-        this._callSubscriber(this._state);
-    },
-    _addMessage() {
-        let newMessage = {
-            id: this._state.messagesPage.textData[this._state.messagesPage.textData.length - 1].id + 1,
-            text: this._state.messagesPage.newMessageForTextData,
-        }
-        console.log(5, newMessage)
-        this._state.messagesPage.textData.push(newMessage);
-        this._state.messagesPage.newMessageForTextData = '';
-        this._callSubscriber(this._state);
-    },
-    _updateTextData(newMessageText) {
-        console.log(6)
-        this._state.messagesPage.newMessageForTextData = newMessageText;
-        this._callSubscriber(this._state);
-    },
+    // _addPost() {
+    //     let newPost = {
+    //         id: this._state.profilePage.postData[this._state.profilePage.postData.length - 1].id + 1,
+    //         post: this._state.profilePage.newTextForPostData,
+    //     }
+    //     console.log(11)
+    //     this._state.profilePage.postData.push(newPost);
+    //     this._state.profilePage.newTextForPostData = '';
+    //     this._callSubscriber(this._state);
+    // },
+    // _updatePostData(newText) {
+    //     console.log(22)
+    //     this._state.profilePage.newTextForPostData = newText;
+    //     this._callSubscriber(this._state);
+    // },
+    // _addNews() {
+    //     let newArticle = {
+    //         id: this._state.newsPage.newsData[this._state.newsPage.newsData.length - 1].id + 1,
+    //         article: this._state.newsPage.newTextForNewsData,
+    //     }
+    //     console.log(3)
+    //     this._state.newsPage.newsData.push(newArticle);
+    //     this._state.newsPage.newTextForNewsData = '';
+    //     this._callSubscriber(this._state);
+    // },
+    // _updateNewsData(newTextNews) {
+    //     console.log(4)
+    //     this._state.newsPage.newTextForNewsData = newTextNews;
+    //     this._callSubscriber(this._state);
+    // },
+    // _addMessage() {
+    //     let newMessage = {
+    //         id: this._state.messagesPage.textData[this._state.messagesPage.textData.length - 1].id + 1,
+    //         text: this._state.messagesPage.newMessageForTextData,
+    //     }
+    //     console.log(5, newMessage)
+    //     this._state.messagesPage.textData.push(newMessage);
+    //     this._state.messagesPage.newMessageForTextData = '';
+    //     this._callSubscriber(this._state);
+    // },
+    // _updateTextData(newMessageText) {
+    //     console.log(6)
+    //     this._state.messagesPage.newMessageForTextData = newMessageText;
+    //     this._callSubscriber(this._state);
+    // },
     getState() {
         return this._state;
     },
@@ -101,19 +98,11 @@ let store = {
         this._callSubscriber = observer;
     },
     dispatch(action) {
-        if (action.type === 'ADD_POST') {
-            this._addPost();
-        } else if (action.type === 'UPDATE_POST_DATA') {
-            this._updatePostData(action.newText);
-        } else if (action.type === 'ADD_NEWS') {
-            this._addNews();
-        } else if (action.type === 'UPDATE_NEWS_DATA') {
-            this._updateNewsData(action.newTextNews);
-        } else if (action.type === 'ADD_MESSAGE') {
-            this._addMessage();
-        } else if (action.type === 'UPDATE_TEXT_DATA') {
-            this._updateTextData(action.newMessageText);
-        }
+        console.log(action)
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.messagesPage = messagesReducer(this._state.messagesPage, action);
+        this._state.newsPage = newsReducer(this._state.newsPage, action);
+        this._callSubscriber(this._state);
     }
 };
 
