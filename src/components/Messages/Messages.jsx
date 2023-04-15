@@ -2,8 +2,8 @@ import classes from './Messages.module.css';
 import User from './Users/Users';
 import Text from './Texts/Texts';
 import React from 'react';
-import { addMessageActionCreator } from '../../redux/store';
-import { updateTextDataActionCreator } from '../../redux/store';
+import { addMessageActionCreator } from '../../redux/messagesReducer';
+import { updateTextDataActionCreator } from '../../redux/messagesReducer';
 
 const Messages = (props) => {
     console.log(('Messages'), props)

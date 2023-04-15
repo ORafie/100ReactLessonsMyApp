@@ -1,8 +1,8 @@
 import React from 'react';
 import classes from './News.module.css';
 import Article from './Article/Article';
-import { addNewsActionCreator } from '../../redux/store';
-import { updateNewsDataActionCreator } from '../../redux/store';
+import { addNewsActionCreator } from '../../redux/newsReducer';
+import { updateNewsDataActionCreator } from '../../redux/newsReducer';
 
 const MyNews = (props) => {
 console.log(props, props.newsPage)
