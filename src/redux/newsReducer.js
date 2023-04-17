@@ -1,7 +1,16 @@
 const ADD_NEWS = 'ADD_NEWS';
 const UPDATE_NEWS_DATA = 'UPDATE_NEWS_DATA';
 
-const newsReducer = (state, action) => {
+let initialState = {
+    newsData: [
+        { id: 1, article: 'About earthquakes' },
+        { id: 2, article: 'Summer is coming!' },
+        { id: 3, article: 'How many languages do you know?' },
+    ],
+    newTextForNewsData: ''
+}
+
+const newsReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_NEWS:
