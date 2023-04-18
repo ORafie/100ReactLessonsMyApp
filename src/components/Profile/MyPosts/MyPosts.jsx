@@ -1,24 +1,21 @@
 import classes from './MyPosts.module.css'
 import Post from './Post/Post';
 import React from 'react';
-import { addPospActionCreator } from '../../../redux/profileReducer';
-import { updatePostDataActionCreator } from '../../../redux/profileReducer';
 
 const MyPosts = (props) => {
     console.log(('myPosts'), props)
-    let posts = props.profilePage.postData.map(post => <Post key={post.id} message={post.post} />)
+    let posts = props.postData.map(post => <Post key={post.id} message={post.post} />)
 
     let newPost = React.createRef();
 
     let submitPost = () => {
-        props.dispatch(addPospActionCreator());
+        props.addPost()
         newPost.current.value = '';
     }
 
     let onPostChange = (event) => {     
         let newText = event.target.value;
-        let action = updatePostDataActionCreator(newText);
-        props.dispatch(action);
+        props.updatePostData(newText)
     }
  
     return (
@@ -27,7 +24,7 @@ const MyPosts = (props) => {
             <div>
                 <textarea id="input" onChange={onPostChange}
                     ref={newPost}
-                    value={props.profilePage.newTextForPostData}
+                    value={props.newTextForPostData}
                 />
             </div>
             <div>

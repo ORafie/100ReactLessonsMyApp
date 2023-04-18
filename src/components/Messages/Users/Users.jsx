@@ -2,6 +2,7 @@ import classes from './Users.module.css';
 import { NavLink } from 'react-router-dom';
 
 const User = (props) => {
+    //debugger
     let path = '/messages/' + props.id;
 
     return <div className={classes.user}>

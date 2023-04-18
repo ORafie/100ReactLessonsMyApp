@@ -18,7 +18,6 @@ let initialState = {
 }
 
 const messagesReducer = (state = initialState, action) => {
-
     switch (action.type) {
         case ADD_MESSAGE:
             let newMessage = {
@@ -33,7 +32,6 @@ const messagesReducer = (state = initialState, action) => {
         default:
             return state;
     }
-
 }
 
 export const addMessageActionCreator = () => {

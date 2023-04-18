@@ -4,6 +4,9 @@ import FavFriends from '../MyFriends/FavFriends/FavFriends';
 
 
 const Navbar = (props) => {
+ // debugger
+  let state = props.store.getState();
+  
   return <nav className={classes.nav}>
     <div className={classes.item}>
       <NavLink to='/profile' className={({ isActive }) => isActive ? classes.active : undefined} >Profile</NavLink>
@@ -24,7 +27,7 @@ const Navbar = (props) => {
       <NavLink to='/myfriends' className={({ isActive }) => isActive ? classes.active : undefined} >My Friends</NavLink>
     </div>
     <div className={classes.detail}>
-      <FavFriends usersData={props.usersData} />
+      <FavFriends usersData={state.messagesPage.usersData} />
     </div>
   </nav>
 }
