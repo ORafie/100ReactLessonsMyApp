@@ -14,18 +14,14 @@ let rerenderEntireTree = (state) => {
             <App
                 state={state}
                 dispatch={store.dispatch.bind(store)}
-            //   
+                store={store}
             />
-
-        </BrowserRouter>
+        </BrowserRouter>, //document.getElementById('root')
     );
 }
-
-// rerenderEntireTree(store.getState.call(store));
 rerenderEntireTree(store.getState());
-// console.log(123456, store.getState());
 
 store.subscribe(() => {
-    // console.log(9999, store.getState());
-    rerenderEntireTree(store.getState.call(store));
+    let state = store.getState();
+    rerenderEntireTree(state);
 });
