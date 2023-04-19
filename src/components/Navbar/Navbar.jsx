@@ -1,11 +1,10 @@
 import classes from './Navbar.module.css'
 import { NavLink } from 'react-router-dom';
-import FavFriends from '../MyFriends/FavFriends/FavFriends';
+import FavFriendsContainer from '../MyFriends/FavFriends/FavFriendsContainer';
 
-
-const Navbar = (props) => {
- // debugger
-  let state = props.store.getState();
+const Navbar = () => {
+ 
+ // let state = props.store.getState();
   
   return <nav className={classes.nav}>
     <div className={classes.item}>
@@ -27,7 +26,7 @@ const Navbar = (props) => {
       <NavLink to='/myfriends' className={({ isActive }) => isActive ? classes.active : undefined} >My Friends</NavLink>
     </div>
     <div className={classes.detail}>
-      <FavFriends usersData={state.messagesPage.usersData} />
+      <FavFriendsContainer />
     </div>
   </nav>
 }

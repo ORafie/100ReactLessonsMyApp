@@ -5,33 +5,31 @@ import Navbar from './components/Navbar/Navbar';
 import MessagesContainer from './components/Messages/MessagesContainer';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-import MyFriends from './components/MyFriends/MyFriends';
+import MyFriendsContainer from './components/MyFriends/MyFriendsContainer';
 import { Route, Routes } from 'react-router-dom';
 import MyNewsContainer from './components/News/NewsContainer';
 
 const App = (props) => {
-  console.log('App', props.store.getState());
-  //debugger
+
   return (
     <div className='app-wrapper'>
       <Header />
-      <Navbar store={props.store}
-      />
+      <Navbar /*state={props.store.getState()}*/ />
       <div className='app-wrapper-content'>
         <Routes>
-          <Route path="/" element={<Profile store={props.store} />}
+          <Route path="/" element={<Profile />}
           />
-          <Route path="/profile" element={<Profile store={props.store} />}
+          <Route path="/profile" element={<Profile />}
           />
-          <Route path="/messages" element={<MessagesContainer store={props.store} />}
+          <Route path="/messages" element={<MessagesContainer />}
           />
-          <Route path='/news' element={<MyNewsContainer store={props.store} />}
+          <Route path='/news' element={<MyNewsContainer />}
           />
           <Route path='/music' element={<Music />}
           />
           <Route path='/settings' element={<Settings />}
           />
-          <Route path='/myfriends' element={<MyFriends store={props.store} />}
+          <Route path='/myfriends' element={<MyFriendsContainer />}
           />
         </Routes>
       </div>

@@ -3,21 +3,18 @@ import Post from './Post/Post';
 import React from 'react';
 
 const MyPosts = (props) => {
-    console.log(('myPosts'), props)
+    console.log(props)
     let posts = props.postData.map(post => <Post key={post.id} message={post.post} />)
-
     let newPost = React.createRef();
 
     let submitPost = () => {
         props.addPost()
         newPost.current.value = '';
     }
-
     let onPostChange = (event) => {     
         let newText = event.target.value;
         props.updatePostData(newText)
     }
- 
     return (
         <div className={classes.masonry}>
             <h3>New post</h3>

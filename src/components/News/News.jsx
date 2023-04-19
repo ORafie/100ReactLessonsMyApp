@@ -3,7 +3,7 @@ import classes from './News.module.css';
 import Article from './Article/Article';
 
 const MyNews = (props) => {
-
+    console.log(props)
     let articles = props.newsData.map(article => <Article key={article.id} news={article.article} />)
     let newArticle = React.createRef();
     
@@ -11,12 +11,10 @@ const MyNews = (props) => {
         props.addNews();
         newArticle.current.value = '';
     }
-    
     let onNewsChange = (event) => {
         let newTextNews = event.target.value;
         props.updateNewsData(newTextNews);
     }
-
     return (
         <div className={classes.masonry}>
             <h3>News</h3>
