@@ -7,7 +7,7 @@ let initialState = {
         { id: 2, name: 'User 2', friend: 'false', fav: 'false' },
         { id: 3, name: 'User 3', friend: 'false', fav: 'false' },
         { id: 4, name: 'User 4', friend: 'true', fav: 'true' },
-        { id: 5, name: 'User 5', friend: 'true', fav: 'true' },
+        { id: 5, name: 'User 5', friend: 'true', fav: 'false' },
     ],
     textData: [
         { id: 1, text: 'Hello world!' },
