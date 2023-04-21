@@ -8,41 +8,41 @@ let initialState = {
         { id: 3, article: 'How many languages do you know?' },
     ],
     newTextForNewsData: ''
-}
+};
 
 const newsReducer = (state = initialState, action) => {
+
     switch (action.type) {
-        case ADD_NEWS: {
+        case ADD_NEWS:
             let newArticle = {
                 id: state.newsData[state.newsData.length - 1].id + 1,
                 article: state.newTextForNewsData,
             }
-            let stateCopy = { ...state };
-            stateCopy.newsData = [...state.newsData];
-            stateCopy.newsData.push(newArticle);
-            stateCopy.newTextForNewsData = '';
-            return stateCopy;
-        }
-        case UPDATE_NEWS_DATA: {
-            let stateCopy = { ...state };
-            stateCopy.newTextForNewsData = action.newTextNews;
-            return stateCopy;
-        }
+            return {
+                ...state,
+                newTextForNewsData: '',
+                newsData: [...state.newsData, newArticle],
+            };
+        case UPDATE_NEWS_DATA:
+            return {
+                ...state,
+                newTextForNewsData: action.newTextNews,
+            };
         default:
             return state;
-    }
+    };
 
-}
+};
 export const addNewsActionCreator = () => {
     return {
         type: 'ADD_NEWS'
-    }
+    };
 };
 
 export const updateNewsDataActionCreator = (newTextNews) => {
     return {
         type: 'UPDATE_NEWS_DATA', newTextNews: newTextNews
-    }
+    };
 }
 
-export default newsReducer
+export default newsReducer;
