@@ -49,5 +49,4 @@ export const updatePostDataActionCreator = (newText) => {
     };
 };
 
-
 export default profileReducer;

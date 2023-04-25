@@ -1,13 +1,19 @@
 import classes from './FavFriends.module.css';
-import User from '../../Messages/Users/Users';
+import FavUser from '../User/FavUsers';
 import React from 'react';
 
 const FavFriends = (props) => {
-  
+    
     console.log(props);
 
-    let favFriend = props.usersData.filter(user => user.fav === 'true')
-        .map(user => <User key={user.id} name={user.name} id={user.id} friend={user.friend } />); 
+    let favFriend = props.usersData.filter(user => user.followed === 'true')
+        .map(user =>
+            <FavUser
+                key={user.id}
+                name={user.name}
+                id={user.id}
+                friend={user.friend}
+                avatarUrl={user.avatarUrl} />); 
 
     return (
         <div>

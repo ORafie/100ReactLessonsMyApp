@@ -26,7 +26,7 @@ const MessagesContainer = () => {
 */
 let mapStateToProps = (state) => {
     return {
-        usersData: state.messagesPage.usersData,
+        usersData: state.usersPage.usersData,
         textData: state.messagesPage.textData,
         newMessageForTextData: state.messagesPage.newMessageForTextData
     }

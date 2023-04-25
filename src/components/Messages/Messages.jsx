@@ -1,5 +1,5 @@
 import classes from './Messages.module.css';
-import User from './Users/Users';
+import User from '../MyFriends/User/User';
 import Text from './Texts/Texts';
 import React from 'react';
 

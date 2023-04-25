@@ -2,13 +2,13 @@ const ADD_MESSAGE = 'ADD_MESSAGE';
 const UPDATE_TEXT_DATA = 'UPDATE_TEXT_DATA';
 
 let initialState = {
-    usersData: [
-        { id: 1, name: 'User 1', friend: 'true', fav: 'true' },
-        { id: 2, name: 'User 2', friend: 'false', fav: 'false' },
-        { id: 3, name: 'User 3', friend: 'false', fav: 'false' },
-        { id: 4, name: 'User 4', friend: 'true', fav: 'true' },
-        { id: 5, name: 'User 5', friend: 'true', fav: 'false' },
-    ],
+    // usersData: [
+    //     { id: 1, name: 'User 1', friend: 'true', fav: 'true' },
+    //     { id: 2, name: 'User 2', friend: 'false', fav: 'false' },
+    //     { id: 3, name: 'User 3', friend: 'false', fav: 'false' },
+    //     { id: 4, name: 'User 4', friend: 'true', fav: 'true' },
+    //     { id: 5, name: 'User 5', friend: 'true', fav: 'false' },
+    // ],
     textData: [
         { id: 1, text: 'Hello world!' },
         { id: 2, text: 'Where have you been!' },

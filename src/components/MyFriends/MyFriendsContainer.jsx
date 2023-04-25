@@ -14,7 +14,7 @@ const MyFriendsContainer = () => {
 */
 let mapStateToProps = (state) => {
     return {
-        usersData: state.messagesPage.usersData,
+        usersData: state.usersPage.usersData,
     }
 } 
 /*
@@ -29,7 +29,18 @@ let mapDispatchToProps = (dispatch) => {
         }
     }
 }*/
+let mapDispatchToProps = (dispatch) => {
+    return {
+        follow: (userId) => {
+            dispatch(followAC(userId));
+        },
+        unfollow: (userId) => {
+            dispatch(unfollowAC(userId));
+        },
+        setUsers: (users) => {
+            dispatch(setUsersAC(users));
+        }
+    }
+}
 
-const MyFriendsContainer = connect(mapStateToProps)(MyFriends);
-export default MyFriendsContainer;
-
+export default connect(mapStateToProps, mapDispatchToProps) (MyFriends);

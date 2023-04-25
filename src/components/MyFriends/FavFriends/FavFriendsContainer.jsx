@@ -15,7 +15,7 @@ const FavFriendsContainer = () => {
 
 let mapStateToProps = (state) => {
     return {
-        usersData: state.messagesPage.usersData,
+        usersData: state.usersPage.usersData,
     }
 } 
 /*
@@ -36,5 +36,5 @@ const FavFriendsContainer = connect(mapStateToProps)(FavFriends);
 export default FavFriendsContainer;
 
 
-//.filter(user => user.fav === 'true')
+//.filter(user => user.followed === 'true')
 //friend={user.friend}
