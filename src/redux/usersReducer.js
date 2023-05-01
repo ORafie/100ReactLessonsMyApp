@@ -25,7 +25,7 @@ let initialState = {
             friend: 'true', followed: 'false', status: 'some words about user5', location: { city: 'Rome', country: 'Italy' }
         },
     ],
-}
+};
 
 const usersReducer = (state = initialState, action) => {
 
@@ -35,33 +35,33 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 usersData: state.usersData.map(u => {
                     if (u.id === action.userId) {
-                        return { ...u, followed: true }
+                        return { ...u, followed: true };
                     }
-                    return u
+                    return u;
                 })
-            }
+            };
         case UNFOLLOW:
             return {
                 ...state,
                 usersData: state.usersData.map(u => {
                     if (u.id === action.userId) {
-                        return { ...u, followed: false }
+                        return { ...u, followed: false };
                     }
-                    return u
+                    return u;
                 })
             };
         case SET_USERS: {
-            return { ...state, users: [...state.users, ...action.users] }
+            return { ...state, users: [...state.users, ...action.users] };
         }
         default:
             return state;
     };
 };
 
-export const followAC = (userId) => { return { type: FOLLOW, userId } };
+export const followAC = (userId) => { return { type: FOLLOW, userId }; };
 
-export const unfollowAC = (userId) => { return { type: UNFOLLOW, userId } };
+export const unfollowAC = (userId) => { return { type: UNFOLLOW, userId }; };
 
-export const setUsersAC = (users) => { return { type: SET_USERS, users } };
+export const setUsersAC = (users) => { return { type: SET_USERS, users }; };
 
 export default usersReducer;
