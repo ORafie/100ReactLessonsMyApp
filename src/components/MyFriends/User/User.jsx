@@ -15,8 +15,8 @@ const User = (props) => {
                 <div>
                 {
                     props.followed == true
-                        ? (<button onClick={() => {props.unfollowAC(props.id) }} >Unfollow</button>)
-                        : (<button onClick={() => {props.followAC(props.id) }}>Follow</button>)
+                        ? (<button onClick={() => {props.unfollow(props.id) }} >Unfollow</button>)
+                        : (<button onClick={() => {props.follow(props.id) }}>Follow</button>)
                 }  
                 </div>
             </span>

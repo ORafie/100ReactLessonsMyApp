@@ -1,6 +1,7 @@
 import MyFriends from './MyFriends';
 import React from 'react';
 import { connect } from 'react-redux';
+import { followAC, unfollowAC, setUsersAC } from '../../redux/usersReducer';
 /*
 const MyFriendsContainer = () => {
     return <StoreContext.Consumer>
